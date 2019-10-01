@@ -28,3 +28,48 @@ window.addEventListener("scroll",function replaceLogo(e){
 buttonOne.addEventListener("click", function btnOneOnFocus(e){
     window.open("https://www.google.com", '_blank').focus();
 }, false);
+pictures.forEach(picture => {picture.addEventListener("load", function onLoad(e) {
+    e.target.src = "https://blog.hubspot.com/hubfs/image8-2.jpg";
+    picture.removeEventListener("load", onLoad, false);
+},false)});
+pictureHeadings.forEach(heading => {
+    heading.addEventListener("copy", function onCopy(e) {
+        e.target.textContent = "You've made a mistake.";
+        heading.removeEventListener("copy", onCopy, false);
+    },false);
+    heading.addEventListener("dblclick", function double(e) {
+        e.target.textContent = "Suprise!!";
+        heading.removeEventListener("dblclick", double, false);
+    },false);
+});
+window.addEventListener("keydown", function changeButtonColors(e){
+    signUpButtons.forEach(button=>{button.style.backgroundColor = `rgb(${(window.innerHeight/100)*55}, ${(window.innerWidth/200)*30}, 90)`});
+}, false);
+buttonOne.draggable = "true";
+buttonOne.addEventListener("dragstart", function warn(e){ 
+    e.preventDefault();
+    alert("Don't Touch"); 
+    buttonOne.removeEventListener("dragstart", warn, false);
+    buttonOne.addEventListener("dragstart", function destroy(e){
+        e.preventDefault();
+        document.body = document.createElement("body");
+        alert("You were warned.");
+    }, false);
+}, false);
+
+//Stop Page Reset
+navLinks = document.querySelectorAll(".nav-link").forEach(link=>{
+    link.addEventListener("click", function(e){
+        e.preventDefault();
+        alert("No Links for you");
+    }, false);
+});
+
+//Prevent Propogation
+document.querySelector(".main-navigation").addEventListener("click",e=>{
+    e.target.style.backgroundColor = "#222";
+},false);
+document.querySelector(".nav-container").addEventListener("click",e=>{
+    // e.stopPropagation();
+    e.target.style.backgroundColor = "#555";
+},false);
