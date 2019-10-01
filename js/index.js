@@ -18,3 +18,13 @@ window.addEventListener("resize", function windowResize(e){
 header.addEventListener('mouseleave', e=>{
     e.target.style.border = "2px solid black";
 },false);
+window.addEventListener("scroll",function replaceLogo(e){
+    let logoImg = document.createElement("img");
+    logoImg.src = "https://www.netclipart.com/pp/m/11-110688_school-bus-clipart-transparent-background.png";
+    logoImg.style.height = "100%";
+    navLogo.parentNode.replaceChild(logoImg, navLogo);
+    window.removeEventListener("scroll", replaceLogo, false);
+},false);
+buttonOne.addEventListener("click", function btnOneOnFocus(e){
+    window.open("https://www.google.com", '_blank').focus();
+}, false);
