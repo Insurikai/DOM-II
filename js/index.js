@@ -15,3 +15,6 @@ banner.addEventListener("mouseenter", function bannerSmall(e){
 window.addEventListener("resize", function windowResize(e){
     body.style.backgroundColor = `rgb(${(window.innerWidth/1366)*255}, ${(window.innerHeight/768)*255}, 120)`;
 }, false);
+header.addEventListener('mouseleave', e=>{
+    e.target.style.border = "2px solid black";
+},false);
