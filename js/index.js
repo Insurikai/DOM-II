@@ -11,3 +11,7 @@ banner.addEventListener("mouseenter", function bannerSmall(e){
     banner.style = "width:90%; margin: 0 5%;";
     banner.removeEventListener("mouseenter", bannerSmall, false);
 }, false);
+
+window.addEventListener("resize", function windowResize(e){
+    body.style.backgroundColor = `rgb(${(window.innerWidth/1366)*255}, ${(window.innerHeight/768)*255}, 120)`;
+}, false);
